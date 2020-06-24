@@ -1,0 +1,28 @@
+ext.deps = [:]
+
+def versions = [:]
+versions.arouter_compiler = "1.2.2"
+versions.arouter_api = "1.4.1"
+versions.android_gradle_plugin = "3.2.0"
+
+def deps = [:]
+deps.arouter_compiler = "com.alibaba:arouter-compiler:$versions.arouter_compiler"
+deps.arouter_api = "com.alibaba:arouter-api:$versions.arouter_api"
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 15
+build_versions.target_sdk = 28
+build_versions.build_tools = "28.0.0"
+ext.build_versions = build_versions
+
+def addRepos(RepositoryHandler handler){
+    handler.google()
+    handler.jcenter()
+//    handler.mavenCentral()
+
+//    handler.maven { url "https://jitpack.io"}
+//    handler.maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+ext.addRepos = this.&addRepos
